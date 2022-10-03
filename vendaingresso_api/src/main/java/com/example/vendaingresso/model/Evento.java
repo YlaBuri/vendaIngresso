@@ -1,5 +1,6 @@
 package com.example.vendaingresso.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,8 +35,10 @@ public class Evento {
     @Valid
     @NotNull
     @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL, mappedBy = "evento")
+    @JsonBackReference
     private List<Ingresso> ingressos;
 
     @ManyToMany(mappedBy = "eventos")
+    @JsonBackReference
     private List<Poltrona> poltronasOculpadas;
 }

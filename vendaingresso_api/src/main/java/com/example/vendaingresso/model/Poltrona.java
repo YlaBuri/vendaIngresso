@@ -30,6 +30,7 @@ public class Poltrona {
     private Double valor;
 
     @ManyToMany(mappedBy = "poltronas")
+    @JsonBackReference
     private List<Ingresso> ingressos;
 
     @ManyToMany(fetch = FetchType.EAGER)

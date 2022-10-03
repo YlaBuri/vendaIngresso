@@ -41,4 +41,12 @@ public class Compra {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ingresso_id", referencedColumnName = "ingresso_id")
     private Ingresso ingresso;
+
+    public Compra(@NotNull LocalDateTime dataCompra, boolean reserva, boolean entregaDomicilio, Cliente cliente, Ingresso ingresso) {
+        this.dataCompra = dataCompra;
+        this.reserva = reserva;
+        this.entregaDomicilio = entregaDomicilio;
+        this.cliente = cliente;
+        this.ingresso = ingresso;
+    }
 }
