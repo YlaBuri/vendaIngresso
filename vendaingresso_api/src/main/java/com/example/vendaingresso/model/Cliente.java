@@ -6,8 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Getter
@@ -40,6 +42,11 @@ public class Cliente {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id", referencedColumnName = "endereco_id")
     private Endereco endereco;
+
+    @Valid
+    @NotNull
+    @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL, mappedBy = "cliente")
+    private List<Compra> compras;
 
     public Cliente(@NotBlank String nome, @NotBlank String email, @NotBlank String senha, @NotNull Boolean habilitadoReserva, @NotBlank String cpf, Endereco endereco) {
         this.nome = nome;
