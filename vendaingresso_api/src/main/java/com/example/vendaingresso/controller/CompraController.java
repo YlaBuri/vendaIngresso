@@ -6,6 +6,7 @@ import com.example.vendaingresso.dto.CompraRequestDto;
 import com.example.vendaingresso.dto.CompraResponseDto;
 import com.example.vendaingresso.model.Compra;
 import com.example.vendaingresso.service.CompraService;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

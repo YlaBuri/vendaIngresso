@@ -1,6 +1,8 @@
 package com.example.vendaingresso.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +27,7 @@ public class Compra {
 
     @NotNull
     @Column(name = "data_compra")
+    @JsonFormat(pattern = "dd-MM-yyyy@HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime dataCompra;
 
     @Column(name = "reserva")
@@ -35,11 +38,12 @@ public class Compra {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-    @JsonBackReference
+    @JsonManagedReference(value="compras-cliente")
     private Cliente cliente;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ingresso_id", referencedColumnName = "ingresso_id")
+    @JsonManagedReference(value="compra-ingresso")
     private Ingresso ingresso;
 
     public Compra(@NotNull LocalDateTime dataCompra, boolean reserva, boolean entregaDomicilio, Cliente cliente, Ingresso ingresso) {

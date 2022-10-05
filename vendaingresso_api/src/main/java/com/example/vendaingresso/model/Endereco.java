@@ -1,6 +1,7 @@
 package com.example.vendaingresso.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,6 +39,6 @@ public class Endereco {
     private String numero;
 
     @OneToOne(mappedBy = "endereco")
-    @JsonBackReference
+    @JsonManagedReference(value="cliente-endereco")
     private Cliente cliente;
 }

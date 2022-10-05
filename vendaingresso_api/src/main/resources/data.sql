@@ -41,5 +41,10 @@ INSERT INTO ingresso_poltrona (ingresso_id, poltrona_id) VALUES
 (1, 2),
 (1, 3);
 
+-- INSERT INTO evento_poltrona(evento_id, poltrona_id) VALUES
+-- (1, 1),
+-- (1, 2),
+-- (1, 3);
+
 INSERT INTO compra(data_compra, reserva, entrega_domicilio, cliente_id, ingresso_id) VALUES
-('03-10-22 03:43:36', false, false, 2, 1);
+('1954-11-19 20:26:22.878307', false, false, 2, 1);

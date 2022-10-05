@@ -1,6 +1,7 @@
 package com.example.vendaingresso.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,10 +36,10 @@ public class Evento {
     @Valid
     @NotNull
     @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL, mappedBy = "evento")
-    @JsonBackReference
+    @JsonBackReference(value="ingressos-evento")
     private List<Ingresso> ingressos;
 
-    @ManyToMany(mappedBy = "eventos")
-    @JsonBackReference
-    private List<Poltrona> poltronasOculpadas;
+//    @ManyToMany(mappedBy = "eventos")
+//    @JsonBackReference
+//    private List<Poltrona> poltronasOculpadas;
 }

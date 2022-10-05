@@ -1,5 +1,7 @@
 package com.example.vendaingresso.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,11 +43,13 @@ public class Cliente {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id", referencedColumnName = "endereco_id")
+    @JsonBackReference(value="cliente-endereco")
     private Endereco endereco;
 
     @Valid
     @NotNull
     @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL, mappedBy = "cliente")
+    @JsonBackReference(value="compras-cliente")
     private List<Compra> compras;
 
     public Cliente(@NotBlank String nome, @NotBlank String email, @NotBlank String senha, @NotNull Boolean habilitadoReserva, @NotBlank String cpf, Endereco endereco) {
