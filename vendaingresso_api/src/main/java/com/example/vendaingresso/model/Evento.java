@@ -39,7 +39,7 @@ public class Evento {
     @JsonBackReference(value="ingressos-evento")
     private List<Ingresso> ingressos;
 
-//    @ManyToMany(mappedBy = "eventos")
-//    @JsonBackReference
-//    private List<Poltrona> poltronasOculpadas;
+    @ManyToMany(mappedBy = "eventos")
+    @JsonBackReference
+    private List<Poltrona> poltronasOculpadas;
 }
