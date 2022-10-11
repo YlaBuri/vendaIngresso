@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -24,9 +25,8 @@ public class ClienteController {
     }
 
     @GetMapping("")
-    public ResponseEntity<Page<Cliente>> listar(@RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
-                                                @RequestParam(value = "size", required = false, defaultValue = "10") Integer size) {
-        Page<Cliente> clientes = clienteService.findAll(page, size);
+    public ResponseEntity<List<Cliente>> listar() {
+        List<Cliente> clientes = clienteService.findAll();
         return ResponseEntity.ok().body(clientes);
     }
 

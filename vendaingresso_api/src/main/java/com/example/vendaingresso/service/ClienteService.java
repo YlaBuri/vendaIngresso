@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,9 +26,8 @@ public class ClienteService {
         this.enderecoRepository = enderecoRepository;
     }
 
-    public Page<Cliente> findAll(Integer page, Integer size){
-        Pageable pag = PageRequest.of(page, size, Sort.unsorted());
-        return clienteRepository.findAll(pag);
+    public List<Cliente> findAll(){
+        return clienteRepository.findAll();
     }
 
     public Cliente inserir(ClienteRequestDto clienteRequestDto){
