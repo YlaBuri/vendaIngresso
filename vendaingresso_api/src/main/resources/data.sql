@@ -27,9 +27,9 @@ VALUES
 
 INSERT INTO evento (nome, data_evento)
 VALUES
-('evento 1', '07-05-10 03:43:36'),
-('evento 2', '26-11-19 09:35:41'),
-('evento 3', '11-06-20 02:56:42');
+('evento 1', '2007-05-10 03:43:36'),
+('evento 2', '2022-11-19 09:35:41'),
+('evento 3', '2011-06-20 02:56:42');
 
 INSERT INTO ingresso(valor_ingresso, evento_id) VALUES
 ('100.45', 1),

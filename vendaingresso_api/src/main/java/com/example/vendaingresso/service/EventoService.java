@@ -16,6 +16,6 @@ public class EventoService {
     }
 
     public List<Evento> findAll() {
-        return eventoRepository.findAll();
+        return eventoRepository.findAllByOrderByDataEventoDesc();
     }
 }
