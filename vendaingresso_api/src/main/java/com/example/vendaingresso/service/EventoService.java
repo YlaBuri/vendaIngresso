@@ -1,5 +1,6 @@
 package com.example.vendaingresso.service;
 
+import com.example.vendaingresso.dto.EventoRequestDto;
 import com.example.vendaingresso.model.Evento;
 import com.example.vendaingresso.repository.EventoRepository;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,10 @@ public class EventoService {
 
     public List<Evento> findAll() {
         return eventoRepository.findAllByOrderByDataEventoDesc();
+    }
+
+    public Evento inserir(EventoRequestDto eventoRequestDto) {
+        Evento evento = eventoRequestDto.toModel();
+        return eventoRepository.save(evento);
     }
 }

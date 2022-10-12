@@ -27,8 +27,14 @@ public class CompraController {
     public ResponseEntity<List<Compra>> listar(){
         List<Compra> compras = compraService.findAll();
         return ResponseEntity.ok().body(compras);
-
     }
+
+    @GetMapping("/cliente/{clienteId}")
+    public ResponseEntity<List<Compra>> listarPorIdUsuario(@PathVariable Long clienteId){
+        List<Compra> compras = compraService.findByUsuario(clienteId);
+        return ResponseEntity.ok().body(compras);
+    }
+
 
     @PostMapping("/")
     public ResponseEntity<CompraResponseDto> inserir(@RequestBody @Valid CompraRequestDto compraRequestDto){

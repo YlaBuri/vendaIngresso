@@ -36,4 +36,8 @@ public class CompraService {
     public List<Compra> findAll() {
         return compraRepository.findAll();
     }
+
+    public List<Compra> findByUsuario(Long clienteId) {
+        return compraRepository.findAllByCliente_Id(clienteId);
+    }
 }

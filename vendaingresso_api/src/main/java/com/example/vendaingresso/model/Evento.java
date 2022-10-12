@@ -29,12 +29,11 @@ public class Evento {
     @NotBlank
     private String nome;
 
-    @NotNull
+
     @Column(name = "data_evento")
     private LocalDateTime dataEvento;
 
     @Valid
-    @NotNull
     @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL, mappedBy = "evento")
     @JsonBackReference(value="ingressos-evento")
     private List<Ingresso> ingressos;
@@ -42,4 +41,9 @@ public class Evento {
     @ManyToMany(mappedBy = "eventos")
     @JsonBackReference
     private List<Poltrona> poltronasOculpadas;
+
+    public Evento(String nome, LocalDateTime dataEvento) {
+        this.nome = nome;
+        this.dataEvento = dataEvento;
+    }
 }
