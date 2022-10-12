@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ticketFragment">
+    <fragment
+        android:id="@+id/ticketFragment"
+        android:name="br.com.ticketca.ticket.TicketFragment"
+        android:label="TicketFragment" >
+        <action
+            android:id="@+id/action_ticketFragment_to_selectDateFragment"
+            app:destination="@id/selectDateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectDateFragment"
+        android:name="br.com.ticketca.step.SelectDateFragment"
+        android:label="SelectDateFragment" >
+        <argument
+            android:name="ticket"
+            app:argType="br.com.ticketca.model.Ticket" />
+    </fragment>
+</navigation>
