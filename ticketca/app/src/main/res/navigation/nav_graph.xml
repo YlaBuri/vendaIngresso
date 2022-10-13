@@ -5,7 +5,7 @@
     app:startDestination="@id/ticketFragment">
     <fragment
         android:id="@+id/ticketFragment"
-        android:name="br.com.ticketca.ticket.TicketFragment"
+        android:name="br.com.ticketca.ticket.TicketActivcity"
         android:label="TicketFragment" >
         <action
             android:id="@+id/action_ticketFragment_to_selectDateFragment"
@@ -13,7 +13,7 @@
     </fragment>
     <fragment
         android:id="@+id/selectDateFragment"
-        android:name="br.com.ticketca.step.SelectDateFragment"
+        android:name="br.com.ticketca.step.SelectDateActivity"
         android:label="SelectDateFragment" >
         <argument
             android:name="ticket"

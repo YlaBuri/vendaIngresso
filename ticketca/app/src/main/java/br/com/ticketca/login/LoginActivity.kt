@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import br.com.ticketca.R
 import br.com.ticketca.home.HomeActivity
 import br.com.ticketca.register.RegisterActivity
+import br.com.ticketca.ticket.TicketActivcity
 import com.google.android.material.textfield.TextInputEditText
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -49,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun nextScreen() {
-        val intent = Intent(this, HomeActivity::class.java)
+        val intent = Intent(this, TicketActivcity::class.java)
         startActivity(intent)
         finish()
 

@@ -21,14 +21,14 @@ class TicketViewModel(
     fun findTickets() {
         viewModelScope.launch {
             try {
-                val news = withContext(Dispatchers.Default) {
+                val ticket = withContext(Dispatchers.Default) {
                     repository.getTickets()
                 }
                 withContext(Dispatchers.Main) {
-                    _ticketViewModel.value = news
+                    _ticketViewModel.value = ticket
                 }
             } catch (e: Exception) {
-                Log.e("Erro News", e.message.toString())
+                Log.e("Erro Ticket", e.message.toString())
             }
         }
     }

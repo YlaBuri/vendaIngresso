@@ -2,6 +2,7 @@ package br.com.ticketca
 
 import android.app.Application
 import br.com.ticketca.di.loginModule
+import br.com.ticketca.di.selectTicketModule
 import br.com.ticketca.di.ticketModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -15,7 +16,7 @@ class MyApplication: Application(), KoinComponent {
         startKoin {
             androidLogger()
             androidContext(this@MyApplication)
-            modules(loginModule, ticketModule)
+            modules(loginModule, ticketModule, selectTicketModule)
         }
     }
 }

@@ -14,7 +14,12 @@
         android:theme="@style/Theme.Ticketca">
 
         <activity
-            android:name=".home.HomeActivity"
+            android:name=".ticket.TicketActivcity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
+
+        <activity
+            android:name=".step.SelectDateActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
 
