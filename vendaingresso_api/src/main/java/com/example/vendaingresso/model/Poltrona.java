@@ -31,7 +31,7 @@ public class Poltrona {
     private Double valor;
 
     @ManyToMany(mappedBy = "poltronas")
-    @JsonBackReference(value="ingressos-poltrona")
+    @JsonBackReference
     private List<Ingresso> ingressos;
 
 //    @ManyToMany(fetch = FetchType.EAGER)
@@ -40,7 +40,7 @@ public class Poltrona {
 //            joinColumns = @JoinColumn(name = "poltrona_id"),
 //            inverseJoinColumns = @JoinColumn(name = "evento_id")
 //    )
-//    @JsonManagedReference
+//    @JsonManagedReference(value = "eventos-poltrona")
 //    private List<Evento> eventos;
 
 }

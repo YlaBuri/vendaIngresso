@@ -38,5 +38,6 @@ public class IngressoRequestDto {
         }
 
         return new Ingresso(valorIngresso, compra, evento, poltronas);
+
     }
 }

@@ -29,11 +29,15 @@ public class CompraService {
 
     public Compra inserir(CompraRequestDto compraRequestDto) {
         Compra compra = compraRequestDto.toModel(clienteRespository, eventoRepository, poltronaRepository);
-        return compra;
+        return compraRepository.save(compra);
     }
 
 
     public List<Compra> findAll() {
         return compraRepository.findAll();
+    }
+
+    public List<Compra> findByUsuario(Long clienteId) {
+        return compraRepository.findAllByCliente_Id(clienteId);
     }
 }

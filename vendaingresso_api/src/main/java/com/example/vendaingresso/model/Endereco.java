@@ -38,7 +38,7 @@ public class Endereco {
     @Column(length = 5)
     private String numero;
 
-    @OneToOne(mappedBy = "endereco")
+    @OneToOne(mappedBy = "endereco", fetch = FetchType.LAZY)
     @JsonManagedReference(value="cliente-endereco")
     private Cliente cliente;
 }

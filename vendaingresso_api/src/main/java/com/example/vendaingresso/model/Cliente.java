@@ -1,7 +1,9 @@
 package com.example.vendaingresso.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -48,8 +50,8 @@ public class Cliente {
 
     @Valid
     @NotNull
-    @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL, mappedBy = "cliente")
-    @JsonBackReference(value="compras-cliente")
+    @OneToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL, mappedBy = "cliente")
+    @JsonManagedReference
     private List<Compra> compras;
 
     public Cliente(@NotBlank String nome, @NotBlank String email, @NotBlank String senha, @NotNull Boolean habilitadoReserva, @NotBlank String cpf, Endereco endereco) {

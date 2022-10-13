@@ -1,7 +1,9 @@
 package com.example.vendaingresso.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,16 +35,18 @@ public class Ingresso {
 
     @ManyToOne
     @JoinColumn(name = "evento_id")
-    @JsonManagedReference(value="ingressos-evento")
+    @JsonBackReference
     private Evento evento;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "ingresso_poltrona",
             joinColumns = @JoinColumn(name = "ingresso_id"),
             inverseJoinColumns = @JoinColumn(name = "poltrona_id")
     )
-    @JsonManagedReference(value="ingressos-poltrona")
     private List<Poltrona> poltronas;
+
+
+    
 
     public Ingresso(Double valorIngresso, Compra compra, Evento evento, List<Poltrona> poltronas) {
         this.valorIngresso = valorIngresso;
