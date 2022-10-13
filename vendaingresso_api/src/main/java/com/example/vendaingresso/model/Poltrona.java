@@ -31,16 +31,16 @@ public class Poltrona {
     private Double valor;
 
     @ManyToMany(mappedBy = "poltronas")
-    @JsonBackReference(value="ingressos-poltrona")
+    @JsonBackReference
     private List<Ingresso> ingressos;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @Fetch(value = FetchMode.SUBSELECT)
-    @JoinTable(name = "evento_poltrona",
-            joinColumns = @JoinColumn(name = "poltrona_id"),
-            inverseJoinColumns = @JoinColumn(name = "evento_id")
-    )
-    @JsonManagedReference
-    private List<Evento> eventos;
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @Fetch(value = FetchMode.SUBSELECT)
+//    @JoinTable(name = "evento_poltrona",
+//            joinColumns = @JoinColumn(name = "poltrona_id"),
+//            inverseJoinColumns = @JoinColumn(name = "evento_id")
+//    )
+//    @JsonManagedReference(value = "eventos-poltrona")
+//    private List<Evento> eventos;
 
 }

@@ -1,7 +1,9 @@
 package com.example.vendaingresso.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,13 +36,13 @@ public class Evento {
     private LocalDateTime dataEvento;
 
     @Valid
-    @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL, mappedBy = "evento")
-    @JsonBackReference(value="ingressos-evento")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "evento")
+    @JsonManagedReference
     private List<Ingresso> ingressos;
 
-    @ManyToMany(mappedBy = "eventos")
-    @JsonBackReference
-    private List<Poltrona> poltronasOculpadas;
+//    @ManyToMany(mappedBy = "eventos")
+//    @JsonBackReference(value = "eventos-poltrona")
+//    private List<Poltrona> poltronasOculpadas;
 
     public Evento(String nome, LocalDateTime dataEvento) {
         this.nome = nome;
